@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Veículos" icon-name="standard:work_order">
+
+        <div class="wrapper slds-border_top slds-m-around_x-small" if:true={listVeiculos}>
+            <template for:each={listVeiculos} for:item="veiculo">
+                <lightning-card key={veiculo.Id}>
+                    <div class="slds-box">
+                        <lightning-icon icon-name="utility:travel_and_places" alternative-text={veiculo.Name}
+                            title={veiculo.Name} size="small"></lightning-icon>
+                        <h1><b>{veiculo.Name}</b></h1>
+                        <p>Model: {veiculo.Model__c}</p>
+                        <p>Type: {veiculo.Type__c}</p>
+                        <lightning-input label="Air Conditioner" type="checkbox" disabled
+                            checked={veiculo.Air_Conditioner__c}>
+                        </lightning-input>
+                    </div>
+                </lightning-card>
+            </template>
+        </div>
+    </lightning-card>
+</template>
